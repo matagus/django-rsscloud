@@ -1,0 +1,6 @@
+TODO:
+    
+* Create a feed class for Atom and old RSS formats.
+* Create rsscloud_notify_update command
+* admin.py
+* pings: view and url

@@ -1,0 +1,53 @@
+1) Install rsscloud_feeds app in your python path.
+
+
+2) Add to your settings.py:
+
+    I) Add to rsscloud_feeds to your installed apps:
+
+    INSTALLED_APPS = (
+        ...
+        "rsscloud_feeds",
+        ...
+    )
+
+
+    II) Choose a REST rssCloud server and configure the following variables:
+            
+        # Using rssNimbus server...
+        RSSCLOUD_URL = "rssnimbus.appspot.com"
+        RSSCLOUD_PORT = "80"
+        RSSCLOUD_PATH = "/pleaseNotify"
+        RSSCLOUD_PROTOCOL = "http-post"
+        RSSCLOUD_REGPROC = ""
+
+        # complete url where your blog will send update notifications
+        # to the rssCloud server using POST method
+        RSSCLOUD_PING_URL = "http://rssnimbus.appspot.com/ping/"
+        RSSCLOUD_PING_RETRY_COUNT = 3
+        RSSCLOUD_PING_RETRY_SECONDS = 60
+        
+        # complete url of your feed
+        RSSCLOUD_FEED_URL = "http://www.matagus.com.ar/feeds/all/"
+
+
+3) Register the model classes that will trigger the ping notification when get saved:
+
+    # maybe in your models.py after your model class:
+    rsscloud_feeds.register(MyPostModelClass)
+
+
+4) Find your Feed class and make it inherit from rsscloud_feeds.feeds.CloudEnabledRss20Feed:
+
+    # maybe in your feeds.py file:
+    from rsscloud_feeds.feeds import CloudEnabledRss20Feed
+    
+    class MyBlogFeed(CloudEnabledRss20Feed):
+        ...
+
+5) Restart your webserver and check your feed. It will have a <cloud> tag.
+
+
+6) Finally create a cron entry to run ./manage.py rsscloud_notify_update
+
+        
