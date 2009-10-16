@@ -1,22 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from urllib2 import urlopen
-from urllib import urlencode
-
 from django.utils.translation import ugettext as _
-from django.db.models import signals
-from django.conf import settings
+from django.db.models.signals import post_save
 
+from signals import ping
 
-def ping():
-    try:
-        req = urlopen(settings.RSSCLOUD_PING_URL,
-            data=urlencode({"url": settings.RSSCLOUD_FEED_URL}))
-
-        res = req.read()
-    
-    except :
-        pass
 
 class AlreadyRegistered(Exception):
     """
@@ -38,4 +26,6 @@ def register(model):
     # otherwise...
     registry.append(model)
 
-    signals.post_save.connect(ping, model)
+    post_save.connect(ping, model)
+
+
