@@ -21,10 +21,12 @@ def ping(sender, instance):
     #except :
         #pass
 
+    # schedule a ping
     update_ping = UpdatePing()
     update_ping.created_at = datetime.now()
     update_ping.scheduled_for = datetime.now() + timedelta(0, RETRY_SECONDS)
-    update_ping.retry_number = RETRY_COUNT
+    # for future pings retry_number is zero
+    update_ping.retry_number = 0
     update_ping.http_code = None
     update_ping.response_msg = None
     update_ping.save()
