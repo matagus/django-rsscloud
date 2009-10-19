@@ -1,3 +1,13 @@
+Requierements:
+==============
+
+    * Python >= 2.5
+    * Django >= 1.0
+
+
+Instructions:
+=============
+
 1) Install rsscloud_feeds app in your python path.
 
 
