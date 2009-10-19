@@ -39,10 +39,13 @@
 
 4) Find your Feed class and make it inherit from rsscloud_feeds.feeds.CloudEnabledRss20Feed:
 
-    # maybe in your feeds.py file:
+    # in your feeds.py file:
+    from django.contrib.syndication.feeds import Feed
     from rsscloud_feeds.feeds import CloudEnabledRss20Feed
     
-    class MyBlogFeed(CloudEnabledRss20Feed):
+    class MyBlogFeed(Feed):
+        feed_type = CloudEnabledRss20Feed
+        ...
         ...
 
 5) Restart your webserver and check your feed. It will have a <cloud> tag.

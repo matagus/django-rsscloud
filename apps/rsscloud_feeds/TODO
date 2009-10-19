@@ -4,3 +4,9 @@ TODO:
 * Create rsscloud_notify_update command
 * admin.py
 * pings: view and url
+
+para README file incluir estos links de especificaciones:
+    http://cyber.law.harvard.edu/rss/soapMeetsRss.html#aNewFeatureForRss
+    http://cyber.law.harvard.edu/rss/rss.html#ltcloudgtSubelementOfLtchannelgt
+
+    +++ http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
