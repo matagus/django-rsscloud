@@ -1,20 +1,14 @@
 django-rsscloud
 ===============
 
-So far, this only contains a django app to plug into your project
-and make your RSS 2.0 feed rsscloud enabled (I have just plan to
-implement REST interface of rsscloud for the blog-side and the
-server-side).
-
-Notice that it's not a complete app yet and it hasn't beed fully
-tested (even more: no test has been written yet). Please wait till
-I make a complete release.
+django-rsscloud is an application to plug into your django project
+and make your RSS 2.0 feed rsscloud enabled. I've only implemented
+the REST interface for the blog side.
 
 I'm testing it at my website: http://www.matagus.com.ar/
 You can check the RSS feed there.
 
 Any feedback is welcome.
-
 
 LICENSE
 =======
