@@ -8,12 +8,19 @@ class CloudEnabledRss20Feed(Rss201rev2Feed):
     """
     """
     def cloud_attributes(self):
+
+        # port 80 is used by default
+        try:
+            port = settings.RSSCLOUD_PORT
+        except AttributeError:
+            RSSCLOUD_PORT = "80"
+            
         return {
             "domain": settings.RSSCLOUD_URL,
-            "port": settings.RSSCLOUD_PORT,
+            "port": RSSCLOUD_PORT,
             "path": settings.RSSCLOUD_PATH,
-            "registerProcedure": settings.RSSCLOUD_REGPROC,
-            "protocol": settings.RSSCLOUD_PROTOCOL
+            "protocol": "http-post",
+            "registerProcedure": ""
         }
 
     def add_root_elements(self, handler):

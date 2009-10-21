@@ -5,10 +5,10 @@ from rsscloud_feeds.models import UpdatePing
 
 
 class UpdatePingAdmin(admin.ModelAdmin):
-    list_display = ("scheduled_for", "created_at", "http_code", "retry_number")
-    list_display_links = ("scheduled_for", )
+    list_display = ("pinged_at", "created_at", "http_code", "retry_number")
+    list_display_links = ("pinged_at", )
     list_filter = ("http_code", "retry_number")
     list_per_page = 15
-    ordering = ("-scheduled_for", )
+    ordering = ("-pinged_at", )
 
 admin.site.register(UpdatePing, UpdatePingAdmin)
