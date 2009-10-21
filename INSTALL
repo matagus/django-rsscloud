@@ -8,16 +8,16 @@ Requirements:
 Instructions:
 =============
 
-1) Install rsscloud_feeds app in your python path.
+1) Install rsscloud app in your python path.
 
 
 2) Add to your settings.py:
 
-    I) Add to rsscloud_feeds to your installed apps:
+    I) Add to rsscloud to your installed apps:
 
     INSTALLED_APPS = (
         ...
-        "rsscloud_feeds",
+        "rsscloud",
         ...
     )
 
@@ -47,15 +47,15 @@ Instructions:
 3) Register the model classes that will trigger the ping notification when get saved:
 
     # maybe in your models.py after your model class:
-    import rsscloud_feeds
-    rsscloud_feeds.register(MyPostModelClass)
+    import rsscloud
+    rsscloud.register(MyPostModelClass)
 
 
 4) Find your Feed class and make it inherit from rsscloud_feeds.feeds.CloudEnabledRss20Feed:
 
     # in your feeds.py file:
     from django.contrib.syndication.feeds import Feed
-    from rsscloud_feeds.feeds import CloudEnabledRss20Feed
+    from rsscloud.feeds import CloudEnabledRss20Feed
     
     class MyBlogFeed(Feed):
         feed_type = CloudEnabledRss20Feed

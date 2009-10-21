@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from rsscloud_feeds.models import UpdatePing
+from rsscloud.models import UpdatePing
 
 
 class UpdatePingAdmin(admin.ModelAdmin):
