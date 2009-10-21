@@ -28,6 +28,3 @@ def register(model):
 
     post_save.connect(ping, model)
 
-
-from planet.models import Post
-register(Post)
