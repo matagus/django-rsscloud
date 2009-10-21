@@ -1,5 +1,5 @@
 django-rsscloud
-* * * * * * * *
+===============
 
 So far, this only contains a django app to plug into your project
 and make your RSS 2.0 feed rsscloud enabled (I have just plan to
@@ -14,3 +14,9 @@ I'm testing it at my website: http://www.matagus.com.ar/
 You can check the RSS feed there.
 
 Any feedback is welcome.
+
+
+LICENSE
+=======
+
+django-rsscloud is released under New BSD license.

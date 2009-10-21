@@ -1,8 +1,8 @@
-Requierements:
+Requirements:
 ==============
 
     * Python >= 2.5
-    * Django >= 1.0
+    * Django >= 1.0.2
 
 
 Instructions:
@@ -26,17 +26,20 @@ Instructions:
             
         # Using rssNimbus server...
         RSSCLOUD_URL = "rssnimbus.appspot.com"
-        RSSCLOUD_PORT = "80"
+        RSSCLOUD_PORT = "80" 
         RSSCLOUD_PATH = "/pleaseNotify"
-        RSSCLOUD_PROTOCOL = "http-post"
-        RSSCLOUD_REGPROC = ""
+        # Method and registerProcedure are not configurable:
+        #   method is alwais "http-post" for REST implementations.
+        #   registerProcedure is alwais empty.
 
         # complete url where your blog will send update notifications
         # to the rssCloud server using POST method
         RSSCLOUD_PING_URL = "http://rssnimbus.appspot.com/ping/"
         RSSCLOUD_PING_RETRY_COUNT = 3
-        RSSCLOUD_PING_RETRY_SECONDS = 60
-        
+        # Choose True if rsscloud_feeds app must do an instantaneous ping
+        # each time you create/update a new post. False otherwise.
+        RSSCLOUD_INSTANT_PING = True
+
         # complete url of your feed
         RSSCLOUD_FEED_URL = "http://www.matagus.com.ar/feeds/all/"
 
@@ -44,6 +47,7 @@ Instructions:
 3) Register the model classes that will trigger the ping notification when get saved:
 
     # maybe in your models.py after your model class:
+    import rsscloud_feeds
     rsscloud_feeds.register(MyPostModelClass)
 
 
