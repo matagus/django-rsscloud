@@ -43,15 +43,18 @@ Instructions:
         # complete url of your feed
         RSSCLOUD_FEED_URL = "http://www.matagus.com.ar/feeds/all/"
 
+3) Execute
 
-3) Register the model classes that will trigger the ping notification when get saved:
+	python manage.py syncdb
+
+4) Register the model classes that will trigger the ping notification when get saved:
 
     # maybe in your models.py after your model class:
     import rsscloud
     rsscloud.register(MyPostModelClass)
 
 
-4) Find your Feed class and make it inherit from rsscloud_feeds.feeds.CloudEnabledRss20Feed:
+5) Find your Feed class and make it inherit from rsscloud_feeds.feeds.CloudEnabledRss20Feed:
 
     # in your feeds.py file:
     from django.contrib.syndication.feeds import Feed
@@ -62,9 +65,9 @@ Instructions:
         ...
         ...
 
-5) Restart your webserver and check your feed. It will have a <cloud> tag.
+6) Restart your webserver and check your feed. It will have a <cloud> tag.
 
 
-6) Finally create a cron entry to run ./manage.py rsscloud_notify_update
+7) Finally create a cron entry to run ./manage.py rsscloud_notify_update
 
         
