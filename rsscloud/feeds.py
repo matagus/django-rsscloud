@@ -11,7 +11,7 @@ class CloudEnabledRss20Feed(Rss201rev2Feed):
 
         # port 80 is used by default
         try:
-            port = settings.RSSCLOUD_PORT
+            RSSCLOUD_PORT = settings.RSSCLOUD_PORT
         except AttributeError:
             RSSCLOUD_PORT = "80"
             
