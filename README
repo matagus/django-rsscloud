@@ -5,6 +5,12 @@ django-rsscloud is an application to plug into your django project
 and make your RSS 2.0 feed rsscloud enabled. I've only implemented
 the REST interface for the blog side.
 
+It turns your RSS feed into a rsscloud-enabled feed and it allows you
+to connect post_save signal from one or more models to a ping function
+that will be in charge of pinging the rsscloud server or schedule a
+future ping. It also provides a management command to run periodically
+in order to ping the rsscloud server if necessary.
+
 I'm testing it at my website: http://www.matagus.com.ar/
 You can check the RSS feed there.
 
