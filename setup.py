@@ -23,10 +23,9 @@ setup(
     author = 'Matias Agustin Mendez',
     author_email = 'me@matagus.com.ar',
 
-    packages = find_packages('rsscloud'),
-    package_dir = {'': 'rsscloud'},
+    packages = find_packages(),
 
-    install_requires = ['setuptools'],
+    install_requires = ['setuptools', 'django'],
 
     classifiers = [
         'Development Status :: 4 - Beta',
