@@ -14,7 +14,7 @@ def read(fname):
 
 setup(
     name = "django-rsscloud",
-    version = "0.1",
+    version = "0.1.1",
     url = 'http://github.com/matagus/django-rsscloud',
     license = 'BSD',
     description = "Simple app to make rsscloud-enabled your Django app feed.",
